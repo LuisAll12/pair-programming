@@ -40,4 +40,18 @@ Implementiert die Funktion `calculateProRataVacationDays` in `src/vacation-days.
 
 ## Aufgabe 2: Lohnabrechnung
 
-Instruktionen folgen
+In `src/payroll.ts` ist eine Datenstruktur namens `Salary` (Gehalt) definiert. Zu jedem Gehalt gibt es ein Geburtsdatum (`born`), den jeweiligen Zahltag (`payday`) und ein Bruttogehalt (`gross`).
+
+Weiter sind der Datentyp `Deductions` (Abzüge) und eine Reihe von konkreten Lohnabzügen (`DEDUCTION_RATES`) definiert. Die Datenstruktur `Payslip` beschreibt eine Lohnabrechnung, welche neben einem Gehalt auch eine Reihe von Abzügen (`deductions`) und ihr Total (`totalDeductions`) enthält. Der Nettolohn (`net`) ist das Bruttogehalt (`salary.gross`) minus Abzüge (`totalDeductions`).
+
+Die Abzüge sollen nach den folgenden Regeln berechnet werden:
+
+- AHV, IV und EO werden ab dem 1. Januar nach dem 17. Geburtstag abgezogen.
+- ALV und NBU werden ab einem Jahreslohn(!) von 2'500.- abgezogen.
+- Pensionskasse (PK) wird ab einem Jahreslohn von 22'680.- abgezogen.
+
+Implementiert die Funktion `calculatePayslip` gemäss diesen Regeln und schreibt dazu Tests in `src/payroll.test.ts`. Es sollen mindestens folgende Fälle abgedeckt werden:
+
+- ein 16 jähriger Lernender mit einem Monatsgehalt von 700.-
+- ein 18 jähriger Lernender mit einem Monatsgehalt von 1200.-
+- ein 21 jähriger Angestellter mit einem Monatsgehalt von 5900.-
